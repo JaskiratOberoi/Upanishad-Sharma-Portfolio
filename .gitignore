@@ -1,0 +1,8 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Python (résumé PDF generator)
+.venv/
+__pycache__/
+*.pyc
