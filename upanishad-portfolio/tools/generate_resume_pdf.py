@@ -52,18 +52,18 @@ y += 12
 pdf.set_xy(M, y)
 pdf.set_font("Mono", "", 8.2)
 pdf.set_text_color(*ACCENT)
-pdf.cell(0, 5, "T E C H N O L O G Y   &   G A M I N G   J O U R N A L I S T   ·   E D I T O R I A L   S T R A T E G I S T")
+pdf.cell(0, 5, "T E C H N O L O G Y   &   G A M I N G   W R I T E R   ·   A I   &   C O N S U M E R   T E C H   R E P O R T E R")
 
 y += 7
 pdf.set_xy(M, y)
 pdf.set_font("Inter", "", 8.4)
 pdf.set_text_color(*INK_SOFT)
-contact = "+91 95600 34930      upanishadsharma97@gmail.com      linkedin.com/in/u-sharma-      beebom.com/author/upanishad5574"
+contact = "+91 95600 34930      upanishadsharma97@gmail.com      linkedin.com/in/u-sharma-      upanishadsharma.wordpress.com"
 pdf.cell(0, 5, contact)
-# clickable links over the email / linkedin / archive segments
+# clickable links over the email / linkedin / portfolio segments
 pdf.link(M + 38, y, 52, 5, "mailto:upanishadsharma97@gmail.com")
 pdf.link(M + 95, y, 45, 5, "https://www.linkedin.com/in/u-sharma-")
-pdf.link(M + 145, y, 52, 5, "https://beebom.com/author/upanishad5574/")
+pdf.link(M + 145, y, 52, 5, "https://upanishadsharma.wordpress.com/")
 
 y += 8.5
 pdf.set_draw_color(*INK)
@@ -76,11 +76,10 @@ pdf.set_xy(M, y)
 pdf.set_font("Inter", "", 9.2)
 pdf.set_text_color(*INK_SOFT)
 summary = (
-    "Technology and gaming journalist with 5+ years and 950+ bylined stories across breaking news, product "
-    "launches, reviews, and opinion. Reported on OpenAI's leadership crisis, Google's Gemini launch, and the "
-    "GTA 6 leak as they broke. As Gaming Editor at Beebom, grew the section to 50M+ monthly views - the "
-    "most-read on the site - and was one of the first writers growing its AI coverage. Combines hands-on reporting with data-driven "
-    "editorial strategy, SEO, and team leadership. Currently freelancing while pursuing full-time editorial roles."
+    "Technology and gaming writer with 5+ years of bylined experience covering breaking news, product "
+    "launches, and reviews. Reported on OpenAI's leadership crisis, Google's Gemini launch, and the GTA 6 "
+    "leak as they broke. Reviews hardware and games with a clear, opinionated voice. Currently freelancing "
+    "while pursuing full-time writing and reporting roles."
 )
 pdf.multi_cell(W - 2 * M, 4.4, summary)
 y = pdf.get_y()
@@ -160,23 +159,26 @@ y = role(y, "Freelance Technology & Gaming Writer", "Tech Nerdiness, Remote", "J
 ])
 
 y = role(y, "Gaming Editor", "Beebom Media, Noida", "Jan 2024 - Jul 2025", [
-    "Led the gaming category to 50M+ monthly views, making it the most-viewed section on the site; grew Fortnite coverage from 10K to 250K+ monthly views and launched NYT Connections coverage to 2M+ views from inception.",
-    "Built and led a team of six writers while continuing to publish reviews, news, and features personally - including industry analysis tracing GTA 6's delay to Take-Two's earnings-call commentary and personal-voice opinion pieces on consumer gaming issues.",
-    "Planned and edited coverage of major releases (Elden Ring Nightreign, Starfield, Doom: The Dark Ages) for accuracy and voice.",
+    "Grew and managed coverage across Fortnite, Roblox, and NYT Connections, taking Fortnite from 10,000 to 250,000+ monthly views and NYT Connections to 2 million+ views from inception.",
+    "Reported on industry news and analysis, including a piece tracing GTA 6's delay back to Take-Two's own earnings call commentary.",
+    "Wrote personal-voice opinion pieces on consumer-facing gaming issues, including Xbox's game price increases and Assassin's Creed Shadows' internet requirement.",
+    "Built and led a team of six writers while continuing to write and publish reviews, news, and features personally.",
+    "Planned coverage of major releases including Elden Ring Nightreign, Starfield, and Doom: The Dark Ages with the managing editor, editing the resulting reviews and guides for accuracy and voice.",
 ])
 
 y = role(y, "Operations & AI Strategist", "Beebom Media, Noida", "Mar 2023 - Dec 2023", [
-    "One of the first writers on Beebom's AI coverage, playing a major role in growing it into a core editorial beat; reported on OpenAI's removal of Sam Altman and Google's Gemini launch as they broke - first major AI piece drew 600K views in 3 days.",
-    "Led company-wide OKR implementation and partnered with leadership on long-term content and growth strategy.",
+    "One of the first writers on Beebom's AI coverage beat; reported on OpenAI's removal of CEO Sam Altman and Google's launch of its Gemini AI model as they broke. First major AI piece drew 600,000 views in 3 days.",
+    "Covered the leaked GTA 6 trailer and Vice City reveal, and wrote a hands-on review of Marvel's Spider-Man 2.",
 ])
 
 y = role(y, "Researcher & Technology Writer", "Beebom Media, Noida", "May 2021 - Mar 2023", [
-    "Wrote hands-on hardware reviews (Lenovo Legion 5i Pro, MSI Raider GE67 HX, GoPro Hero 11 Black) and covered early generative AI as it launched (GPT-4, Google Bard, Bing AI).",
-    "Drove research and topic strategy for a YouTube vertical with 3M+ subscribers, directly informing scripting decisions.",
+    "Wrote hands-on hardware reviews, including the Lenovo Legion 5i Pro, MSI Raider GE67 HX, and GoPro Hero 11 Black.",
+    "Covered early generative AI tools as they launched, including GPT-4, Google Bard, and Microsoft's Bing AI integration.",
+    "Wrote explainers on emerging technology topics, including Web3 and the metaverse, for a general technology audience.",
 ])
 
 y = role(y, "Co-Founder & Entertainment Editor", "The Envoy Web", "Jan 2019 - May 2021", [
-    "Co-founded an entertainment publication and grew it to 5M+ views, leading content strategy and editorial planning.",
+    "Co-founded The Envoy Web, an entertainment publication that grew to 5 million+ views, and led its content strategy and editorial planning.",
 ])
 
 # ---------- Education / Skills two-column ----------
@@ -217,9 +219,8 @@ pdf.set_line_width(0.3)
 pdf.line(col2_x, y_start - 3, W - M, y_start - 3)
 
 skills = [
-    ("Writing & Reporting", "Breaking news, hardware & game reviews, features, explainers, opinion"),
-    ("Editorial & Growth", "Content strategy, SEO, editing, OKR implementation, team management"),
-    ("Tools", "WordPress, Semrush, Keyword Planner, Asana, Canva"),
+    ("Writing & Reporting", "Breaking news, hardware & game reviews, explainers, feature & opinion writing"),
+    ("Beats & Tools", "AI, consumer tech, gaming news, hardware, WordPress, Semrush, Asana, Canva"),
 ]
 sy = y_start
 for label, val in skills:
