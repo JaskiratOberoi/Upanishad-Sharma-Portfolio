@@ -58,12 +58,12 @@ y += 7
 pdf.set_xy(M, y)
 pdf.set_font("Inter", "", 8.4)
 pdf.set_text_color(*INK_SOFT)
-contact = "+91 95600 34930      upanishadsharma97@gmail.com      linkedin.com/in/u-sharma-      upanishadsharma.wordpress.com"
+contact = "+91 95600 34930      upanishadsharma97@gmail.com      linkedin.com/in/u-sharma-      beebom.com/author/upanishad5574"
 pdf.cell(0, 5, contact)
 # clickable links over the email / linkedin / portfolio segments
 pdf.link(M + 38, y, 52, 5, "mailto:upanishadsharma97@gmail.com")
 pdf.link(M + 95, y, 45, 5, "https://www.linkedin.com/in/u-sharma-")
-pdf.link(M + 145, y, 52, 5, "https://upanishadsharma.wordpress.com/")
+pdf.link(M + 145, y, 52, 5, "https://beebom.com/author/upanishad5574/")
 
 y += 8.5
 pdf.set_draw_color(*INK)
