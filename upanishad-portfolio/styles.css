@@ -551,6 +551,15 @@ body.is-loaded .line { transform: translateY(0); }
   transition: color 0.3s;
 }
 .work-card a:hover .card-index { color: var(--accent); }
+.card-pub {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink-faint);
+  transition: color 0.3s;
+}
+.work-card a:hover .card-pub { color: var(--accent); }
 
 .work-card h3 {
   font-family: var(--serif);
