@@ -58,12 +58,23 @@ y += 7
 pdf.set_xy(M, y)
 pdf.set_font("Inter", "", 8.4)
 pdf.set_text_color(*INK_SOFT)
-contact = "+91 95600 34930      upanishadsharma97@gmail.com      linkedin.com/in/u-sharma-      beebom.com/author/upanishad5574"
+contact_parts = [
+    ("+91 95600 34930", None),
+    ("upanishadsharma97@gmail.com", "mailto:upanishadsharma97@gmail.com"),
+    ("linkedin.com/in/upanishadsharma", "https://www.linkedin.com/in/upanishadsharma"),
+    ("beebom.com/author/upanishad5574", "https://beebom.com/author/upanishad5574/"),
+]
+SEP = "     "
+contact = SEP.join(t for t, _ in contact_parts)
 pdf.cell(0, 5, contact)
-# clickable links over the email / linkedin / portfolio segments
-pdf.link(M + 38, y, 52, 5, "mailto:upanishadsharma97@gmail.com")
-pdf.link(M + 95, y, 45, 5, "https://www.linkedin.com/in/u-sharma-")
-pdf.link(M + 145, y, 52, 5, "https://beebom.com/author/upanishad5574/")
+# clickable links over the email / linkedin / portfolio segments,
+# with x offsets computed from actual string widths
+x_seg = M
+for text, url in contact_parts:
+    w_seg = pdf.get_string_width(text)
+    if url:
+        pdf.link(x_seg, y, w_seg, 5, url)
+    x_seg += w_seg + pdf.get_string_width(SEP)
 
 y += 8.5
 pdf.set_draw_color(*INK)
@@ -77,7 +88,7 @@ pdf.set_font("Inter", "", 9.2)
 pdf.set_text_color(*INK_SOFT)
 summary = (
     "Technology and gaming writer with 5+ years of bylined experience covering breaking news, product "
-    "launches, and reviews. Reported on OpenAI's leadership crisis, Google's Gemini launch, and the GTA 6 "
+    "launches, and reviews. Reported on OpenAI's firing of Sam Altman and the GTA 6 "
     "leak as they broke. Reviews hardware and games with a clear, opinionated voice. Currently freelancing "
     "while pursuing full-time writing and reporting roles."
 )
@@ -90,7 +101,7 @@ strip_h = 15
 pdf.set_fill_color(*PAPER_DEEP)
 pdf.rect(M, y, W - 2 * M, strip_h, "F")
 stats = [
-    ("50M+", "monthly views led"),
+    ("50M+", "monthly views at Beebom, led gaming"),
     ("950+", "bylined stories"),
     ("600K", "views in 3 days, first AI piece"),
     ("6", "writers mentored & led"),
@@ -154,11 +165,11 @@ def role(yy, title, org, dates, bullets):
 y += 5.5
 y = section_heading("Experience", y)
 
-y = role(y, "Freelance Technology & Gaming Writer", "Tech Nerdiness, Remote", "Jul 2025 - Present", [
+y = role(y, "Contributing Writer", "Tech Nerdiness, Remote", "Jan 2026 - Present", [
     "Write technology and gaming news, reviews, and explainers as an independent contributor, managing pitches and deadlines across multiple outlets.",
 ])
 
-y = role(y, "Gaming Editor", "Beebom Media, Noida", "Jan 2024 - Jul 2025", [
+y = role(y, "Lead Gaming Editor", "Beebom Media, Noida", "Dec 2023 - Jun 2025", [
     "Grew and managed coverage across Fortnite, Roblox, and NYT Connections, taking Fortnite from 10,000 to 250,000+ monthly views and NYT Connections to 2 million+ views from inception.",
     "Reported on industry news and analysis, including a piece tracing GTA 6's delay back to Take-Two's own earnings call commentary.",
     "Wrote personal-voice opinion pieces on consumer-facing gaming issues, including Xbox's game price increases and Assassin's Creed Shadows' internet requirement.",
@@ -166,18 +177,18 @@ y = role(y, "Gaming Editor", "Beebom Media, Noida", "Jan 2024 - Jul 2025", [
     "Planned coverage of major releases including Elden Ring Nightreign, Starfield, and Doom: The Dark Ages with the managing editor, editing the resulting reviews and guides for accuracy and voice.",
 ])
 
-y = role(y, "Operations & AI Strategist", "Beebom Media, Noida", "Mar 2023 - Dec 2023", [
-    "One of the first writers on Beebom's AI coverage beat; reported on OpenAI's removal of CEO Sam Altman and Google's launch of its Gemini AI model as they broke. First major AI piece drew 600,000 views in 3 days.",
+y = role(y, "Operations & AI Strategist", "Beebom Media, Noida", "Feb 2023 - Dec 2023", [
+    "One of the first writers on Beebom's AI coverage beat; reported on OpenAI's removal of CEO Sam Altman as it broke. First major AI piece drew 600,000 views in 3 days.",
     "Covered the leaked GTA 6 trailer and Vice City reveal, and wrote a hands-on review of Marvel's Spider-Man 2.",
 ])
 
-y = role(y, "Researcher & Technology Writer", "Beebom Media, Noida", "May 2021 - Mar 2023", [
+y = role(y, "Researcher & Tech Writer", "Beebom Media, Noida", "Nov 2021 - Mar 2023", [
     "Wrote hands-on hardware reviews, including the Lenovo Legion 5i Pro, MSI Raider GE67 HX, and GoPro Hero 11 Black.",
     "Covered early generative AI tools as they launched, including GPT-4, Google Bard, and Microsoft's Bing AI integration.",
     "Wrote explainers on emerging technology topics, including Web3 and the metaverse, for a general technology audience.",
 ])
 
-y = role(y, "Co-Founder & Entertainment Editor", "The Envoy Web", "Jan 2019 - May 2021", [
+y = role(y, "Co-Founder & Entertainment Editor", "The Envoy Web", "Nov 2018 - Apr 2020", [
     "Co-founded The Envoy Web, an entertainment publication that grew to 5 million+ views, and led its content strategy and editorial planning.",
 ])
 
